@@ -37,7 +37,7 @@ public class Polinomio {
 	}
 	public void mostrar() {
 		System.out.println("Hola soy julian");
-		System.out.println("Hola soy yamil");
+		System.out.println("Hola soy julian");
 	}
 	
 //	double evaluarRecursiva(double x){}
