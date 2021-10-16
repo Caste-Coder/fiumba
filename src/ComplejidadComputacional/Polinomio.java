@@ -8,7 +8,12 @@ public class Polinomio {
 
 	// La posicion 0 del arreglo de coeficientes contiene el coeficiente de grado n
 	// la posicion n contiene al termino independiente.
-
+//probando un nuevo metodo
+	
+	
+	
+	
+	
 	public Polinomio(double [] coeficientes){
 		this.coeficientes = coeficientes;
 		this.grado = coeficientes.length -1;
