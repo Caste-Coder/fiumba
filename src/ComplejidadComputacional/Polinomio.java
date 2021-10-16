@@ -7,6 +7,7 @@ public class Polinomio {
 	private double[] coeficientes;
 	int caste;
 	int yamil;
+	int caste2;
 	// La posicion 0 del arreglo de coeficientes contiene el coeficiente de grado n
 	// la posicion n contiene al termino independiente.
 
