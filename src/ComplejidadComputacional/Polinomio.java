@@ -35,14 +35,6 @@ public class Polinomio {
 		return suma;
 	
 	}
-	public void mostrar() {
-<<<<<<< HEAD
-		System.out.println("Hola soy julian");
-		System.out.println("Hola soy julian");
-=======
-
->>>>>>> c12f1b861d9aa700e1b22d3501083dbd3a0d7edf
-	}
 	
 //	double evaluarRecursiva(double x){}
 //
