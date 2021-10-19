@@ -25,6 +25,7 @@ public class Polinomio {
 	}
 
 	double evaluarMSucesivas(double x) {
+<<<<<<< Updated upstream
 		double suma = 0, resPow;
 		
 		for(int i = 0; i<=grado; i++) {
@@ -33,6 +34,11 @@ public class Polinomio {
 				resPow *= resPow;
 			}
 			suma += resPow * coeficientes[i];
+=======
+		double suma = 0;
+		for (int i = 0; i <= grado; i++) {
+			suma += Math.pow(x, i) * coeficientes[grado - i];
+>>>>>>> Stashed changes
 		}
 		return suma;
 	}
@@ -44,7 +50,16 @@ public class Polinomio {
 
 //	double evaluarRecursivaPar(double x){...}
 //
-//	double evaluarProgDinamica(double x){...}
+	double evaluarProgDinamica(double x){
+		double multiplicacionSucesivas = 1;
+		double suma = 0;
+		for(int i = grado; i >= 0; i--) {			
+			suma += multiplicacionSucesivas * coeficientes[i];
+			multiplicacionSucesivas *= x;
+		}
+		return suma;
+}
+
 //
 //	double evaluarMejorada(double x){...}
 //
@@ -59,9 +74,13 @@ public class Polinomio {
 
 	double evaluarHorner(double x) {
 		double suma = 0;
+<<<<<<< Updated upstream
 		for(int i = 0; i<=grado; i++) {
+=======
+		for (int i = 0; i <= grado; i++) {
+>>>>>>> Stashed changes
 			suma = suma * x + coeficientes[i];
 		}
-		return suma; 
+		return suma;
 	}
 }
