@@ -1,5 +1,6 @@
 package ComplejidadComputacional;
 
+import java.math.BigDecimal;
 import java.util.Arrays;
 
 public class Polinomio {
@@ -45,12 +46,15 @@ public class Polinomio {
 //	double evaluarRecursivaPar(double x){...}
 //
 	double evaluarProgDinamica(double x){
+		long tiempoInicio = System. nanoTime();
 		double multiplicacionSucesivas = 1;
 		double suma = 0;
 		for(int i = grado; i >= 0; i--) {			
 			suma += multiplicacionSucesivas * coeficientes[i];
 			multiplicacionSucesivas *= x;
 		}
+		long Tiempofin = System. nanoTime();
+		System.out.println("Tiempo Programacion dinamica:" + (Tiempofin-tiempoInicio));
 		return suma;
 }
 
@@ -67,11 +71,15 @@ public class Polinomio {
 	}
 
 	double evaluarHorner(double x) {
-		double suma = 0;
 
+		double suma = 0;
+		long tiempoInicio = System. nanoTime();
 		for (int i = 0; i <= grado; i++) {
 			suma = suma * x + coeficientes[i];
 		}
+		long Tiempofin = System. nanoTime();
+		System.out.println("Tiempo Horner:" + (Tiempofin-tiempoInicio));
 		return suma;
+		
 	}
 }
