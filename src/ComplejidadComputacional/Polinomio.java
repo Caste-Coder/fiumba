@@ -25,28 +25,42 @@ public class Polinomio {
 	}
 
 	double evaluarMSucesivas(double x) {
-		double suma = 0;
+		double suma = 0, resPow;
+		
 		for(int i = 0; i<=grado; i++) {
-			suma += Math.pow(x, i) * coeficientes[grado - i];
+			resPow = x;
+			for(int j = 0; j < grado - i; j++) {
+				resPow *= resPow;
+			}
+			suma += resPow * coeficientes[i];
 		}
 		return suma;
-
 	}
 
-//	double evaluarRecursiva(double x){}
-//
+	double evaluarRecursiva(double x){
+		
+		return evaluarRecursiva(x);
+	}
+
 //	double evaluarRecursivaPar(double x){...}
 //
 //	double evaluarProgDinamica(double x){...}
 //
 //	double evaluarMejorada(double x){...}
 //
-//	double evaluarPow(double x){...}
-//
+	double evaluarPow(double x){
+		double suma = 0;
+		for(int i = 0; i<=grado; i++) {
+			suma += Math.pow(x, i) * coeficientes[grado - i];
+		}
+
+		return suma;
+	}
+
 	double evaluarHorner(double x) {
 		double suma = 0;
 		for(int i = 0; i<=grado; i++) {
-			suma = suma * x + coeficientes[i]; 
+			suma = suma * x + coeficientes[i];
 		}
 		return suma; 
 	}
