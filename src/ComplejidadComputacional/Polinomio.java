@@ -22,6 +22,7 @@ public class Polinomio {
 	}
 
 	double evaluarMSucesivas(double x) {
+		long tiempoInicio = System. nanoTime();
 		double suma = 0, resPow;
 
 		for (int i = 0; i <= grado; i++) {
@@ -29,29 +30,34 @@ public class Polinomio {
 			for (int j = 0; j < grado - i; j++) {
 				resPow *= x;
 			}
-			suma += resPow * coeficientes[i];
+			suma += resPow * coeficientes[i];			
 		}
-		
+		long Tiempofin = System.nanoTime();
+		System.out.println("Tiempo MSucesivas:" + (Tiempofin - tiempoInicio));
 		return suma;
 	}
 
 	double evaluarRecursiva(double x) {
+		long tiempoInicio = System. nanoTime();
 		double suma = 0, resPow;
-
 		for (int i = 0; i <= grado; i++) {
 			resPow = potencia(x, grado - i);
 			suma += resPow * coeficientes[i];
 		}
+		long Tiempofin = System.nanoTime();
+		System.out.println("Tiempo Recursiva:" + (Tiempofin - tiempoInicio));
 		return suma;
 	}
 
 	double evaluarRecursivaPar(double x) {
+		long tiempoInicio = System.nanoTime();
 		double suma = 0, resPow;
-
 		for (int i = 0; i <= grado; i++) {
 			resPow = potenciaPar(x, grado - i);
 			suma += resPow * coeficientes[i];
 		}
+		long Tiempofin = System.nanoTime();
+		System.out.println("Tiempo Recursiva Par:" + (Tiempofin - tiempoInicio));
 		return suma;
 	}
 
@@ -61,27 +67,26 @@ public class Polinomio {
 
 		return x * potencia(x, exponente - 1);
 	}
+
 	double potenciaPar(double x, double exponente) {
 		if (exponente == 0)
 			return 1;
 
-		return exponente % 2 != 0? x * potenciaPar(x, exponente - 1) : potenciaPar(x*x, exponente/2);
+		return exponente % 2 != 0 ? x * potenciaPar(x, exponente - 1) : potenciaPar(x * x, exponente / 2);
 	}
 
-//	double evaluarRecursivaPar(double x){...}
-//
-	double evaluarProgDinamica(double x){
-		long tiempoInicio = System. nanoTime();
+	double evaluarProgDinamica(double x) {
+		long tiempoInicio = System.nanoTime();
 		double multiplicacionSucesivas = 1;
 		double suma = 0;
-		for(int i = grado; i >= 0; i--) {			
+		for (int i = grado; i >= 0; i--) {
 			suma += multiplicacionSucesivas * coeficientes[i];
 			multiplicacionSucesivas *= x;
 		}
-		long Tiempofin = System. nanoTime();
-		System.out.println("Tiempo Programacion dinamica:" + (Tiempofin-tiempoInicio));
+		long Tiempofin = System.nanoTime();
+		System.out.println("Tiempo Programacion dinamica:" + (Tiempofin - tiempoInicio));
 		return suma;
-}
+	}
 
 //
 //	double evaluarMejorada(double x){...}
@@ -97,13 +102,12 @@ public class Polinomio {
 
 	double evaluarHorner(double x) {
 		double suma = 0;
-		long tiempoInicio = System. nanoTime();
+		long tiempoInicio = System.nanoTime();
 		for (int i = 0; i <= grado; i++) {
 			suma = suma * x + coeficientes[i];
 		}
-		long Tiempofin = System. nanoTime();
-		System.out.println("Tiempo Horner:" + (Tiempofin-tiempoInicio));
+		long Tiempofin = System.nanoTime();
+		System.out.println("Tiempo Horner:" + (Tiempofin - tiempoInicio));
 		return suma;
-		
 	}
 }
