@@ -70,7 +70,18 @@ public class Polinomio {
 		return exponente % 2 != 0? x * potenciaPar(x, exponente - 1) : potenciaPar(x*x, exponente/2);
 	}
 
-//	double evaluarProgDinamica(double x){...}
+//	double evaluarRecursivaPar(double x){...}
+//
+	double evaluarProgDinamica(double x){
+		double multiplicacionSucesivas = 1;
+		double suma = 0;
+		for(int i = grado; i >= 0; i--) {			
+			suma += multiplicacionSucesivas * coeficientes[i];
+			multiplicacionSucesivas *= x;
+		}
+		return suma;
+}
+
 //
 //	double evaluarMejorada(double x){...}
 //
