@@ -92,11 +92,13 @@ public class Polinomio {
 //	double evaluarMejorada(double x){...}
 //
 	double evaluarPow(double x) {
+		long tiempoInicio = System.nanoTime();
 		double suma = 0;
 		for (int i = 0; i <= grado; i++) {
 			suma += Math.pow(x, i) * coeficientes[grado - i];
 		}
-
+		long Tiempofin = System.nanoTime();
+		System.out.println("Tiempo Pow " + (Tiempofin - tiempoInicio));
 		return suma;
 	}
 
